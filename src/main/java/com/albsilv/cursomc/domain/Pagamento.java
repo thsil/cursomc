@@ -11,6 +11,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.albsilv.cursomc.domain.enums.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 //herança.. duas estragegias.. tabela unica... onde atributos não usados recebem o valor nulo, tem mais performance bom para poucos atributos na subclasse... 
@@ -25,6 +26,7 @@ public abstract class Pagamento implements Serializable{
 	private Long id;
 	private Integer estado;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId
